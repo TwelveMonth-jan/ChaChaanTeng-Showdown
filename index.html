@@ -513,7 +513,7 @@
     </div>
     <table class="rule-table">
       <tr><th>項目</th><th>數值</th></tr>
-      <tr><td>起始手牌</td><td><strong>4 張</strong></td></tr>
+      <tr><td>起始手牌</td><td><strong>5 張</strong></td></tr>
       <tr><td>每回合抽牌</td><td><strong>2 張</strong></td></tr>
       <tr><td>手牌上限</td><td><strong>6 張</strong></td></tr>
       <tr><td>桌位數量</td><td><strong>每人 2 張</strong></td></tr>
@@ -553,7 +553,7 @@
         <div class="flow-line"><div class="flow-dot">4</div><div class="flow-connector"></div></div>
         <div class="flow-content">
           <h4>抽取手牌</h4>
-          <p>每位玩家從中央牌庫抽取 <strong>4 張手牌</strong>。</p>
+          <p>每位玩家從中央牌庫抽取 <strong>5 張手牌</strong>。</p>
         </div>
       </div>
       <div class="flow-step">
@@ -640,7 +640,7 @@
             手中已有某位客人需要的完整食材組合？宣告為該客人上餐！<br>
             1. 指定 1 位自己桌上的客人<br>
             2. 打出符合需求的食材牌<br>
-            3. 如有需要，可加入蓋牌<br>
+            3. 如有需要，可蓋 1 張牌作為百搭（每次上餐限蓋 1 張）<br>
             4. 進入「上餐干擾與踢爆流程」
           </td>
         </tr>
@@ -648,12 +648,19 @@
           <td><strong>C. 使用功能牌</strong></td>
           <td>
             <strong>強行帶位</strong>：將客人卡放到對手的空桌上<br>
-            <strong>暗中加料</strong>：不能單獨使用，須在其他玩家上餐時打出
+            <strong>暗中加料</strong>：不能單獨使用，須在其他玩家上餐時打出<br>
+            <strong>老闆唔喺度</strong>：本回合查勤不計空桌怒氣<br>
+            <strong>執枱神功</strong>：與對手互換桌上 1 位客人<br>
+            <strong>客滿</strong>（反應型）：取消一次對你的強行帶位
           </td>
         </tr>
         <tr>
           <td><strong>D. 主動反檯</strong></td>
           <td>不想處理某位客人？宣告「反檯」，棄置該客人、清空桌位，但<strong class="text-red">立刻 +1 怒氣值</strong>。</td>
+        </tr>
+        <tr>
+          <td><strong>E. 花費小費</strong></td>
+          <td>花費 <strong>3 小費</strong>減少 <strong>1 點</strong>老闆怒氣值。每回合最多 1 次。</td>
         </tr>
       </table>
     </div>
@@ -679,7 +686,7 @@
             <div class="highlight pink" style="text-align: center; font-size: 1.3rem; letter-spacing: .1em;">
               「你跣我！」
             </div>
-            <p>一旦有人踢爆，立刻翻開被質疑的蓋牌並結算。</p>
+            <p>踢爆者必須<strong>指定 1 張蓋牌</strong>翻開。一旦有人踢爆，立刻翻開被指定的蓋牌並結算。每次上餐最多翻 1 張。</p>
           </div>
         </div>
         <div class="flow-step">
@@ -703,7 +710,7 @@
           <div class="flow-content">
             <h4>完成上餐</h4>
             <p>若最終餐點符合客人需求 ── <span class="tag tag-green">上餐成功</span> 棄牌、得小費、清空桌位。</p>
-            <p>若不符合需求 ── <span class="tag tag-red">上餐失敗</span> 已確認無效的牌照效果處理，其餘牌放入棄牌區。</p>
+            <p>若不符合需求 ── <span class="tag tag-red">上餐失敗</span> 無效牌棄置，其餘合法食材退回手牌，客人留在桌上。</p>
           </div>
         </div>
       </div>
@@ -711,31 +718,35 @@
 
     <!-- 6-4 查勤 -->
     <div class="card">
-      <h3>階段四：查勤</h3>
+      <h3>階段三：查勤</h3>
+      <div class="highlight green" style="margin-bottom: 12px;">
+        每位玩家的第一個回合跳過此階段！
+      </div>
       <p>回合結束時，檢查你面前的 2 張桌位：</p>
       <div class="highlight red" style="text-align: center; font-size: 1.1rem;">
         每有 1 張空桌 ➜ 立刻 +1 老闆怒氣值！<br>
         2 張空桌 = +2 怒氣！
       </div>
+      <p style="margin-top: 10px; font-size: .92rem;">若本回合已使用「老闆唔喺度」，則本次查勤不產生怒氣。</p>
     </div>
 
     <!-- 6-5 奧客結算 -->
     <div class="card">
-      <h3>階段五：奧客結算</h3>
+      <h3>階段四：奧客結算</h3>
       <p>完成查勤後，檢查桌上所有尚未完成的客人。每位具有「回合結束時 +1 怒氣」效果的奧客，若此時仍未完成上餐，便各自結算一次效果。</p>
       <div class="highlight red">
         同時有 2 位催單奧客？那就 +2 怒氣值！
       </div>
     </div>
 
-    <!-- 6-6 淘汰 -->
+    <!-- 即時淘汰 -->
     <div class="card">
-      <h3>階段六：淘汰檢查</h3>
+      <h3>即時淘汰（貫穿全程）</h3>
       <div class="highlight red" style="text-align: center; font-size: 1.1rem;">
-        怒氣值 ≥ 5 ➜ 即時被老闆開除！
+        無論任何階段，怒氣值 ≥ 5 ➜ 立刻被老闆開除！
       </div>
       <ul class="mt">
-        <li>立即移除所有手牌</li>
+        <li>所有手牌放入棄牌區</li>
         <li>棄置桌上所有客人與餐點</li>
         <li>不再參與後續回合</li>
         <li>其桌位不再作為可互動區域</li>
@@ -758,7 +769,7 @@
         <tr><th>類型</th><th>說明</th></tr>
         <tr>
           <td><strong>百搭蓋牌</strong></td>
-          <td>上餐時缺少某個食材？可以將手牌中任意 1 張牌<strong>面朝下</strong>打出，宣稱它是你所需的食材。</td>
+          <td>上餐時缺少某個食材？可以將手牌中任意 1 張牌<strong>面朝下</strong>打出，宣稱它是你所需的食材。<strong>每次上餐最多只能蓋 1 張百搭。</strong></td>
         </tr>
         <tr>
           <td><strong>暗中加料蓋牌</strong></td>
@@ -766,7 +777,7 @@
         </tr>
         <tr>
           <td><strong>踢爆檢查</strong></td>
-          <td>所有蓋牌在正式生效前，都可能被其他玩家質疑與翻開！</td>
+          <td>所有蓋牌在正式生效前，都可能被其他玩家質疑。踢爆者須<strong>指定 1 張蓋牌</strong>翻開，每次上餐最多翻 1 張。</td>
         </tr>
       </table>
     </div>
@@ -825,7 +836,7 @@
       </div>
       <div class="glossary-item">
         <div class="term">💰 小費</div>
-        <div class="def">成功完成客人訂單後獲得的獎勵，用於最終平手比較。</div>
+        <div class="def">完成客人訂單後獲得的獎勵。可花 3 小費減 1 怒氣，也用於最終平手比較。</div>
       </div>
       <div class="glossary-item">
         <div class="term">🪑 空桌</div>
@@ -837,7 +848,11 @@
       </div>
       <div class="glossary-item">
         <div class="term">👀 踢爆</div>
-        <div class="def">對蓋牌內容提出質疑，要求翻牌檢查的行為。</div>
+        <div class="def">對蓋牌內容提出質疑，指定 1 張蓋牌翻開檢查。</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term">🚫 客滿</div>
+        <div class="def">反制牌，可取消一次對你的「強行帶位」。</div>
       </div>
     </div>
   </section>
@@ -854,32 +869,22 @@
       <div class="qr-item">
         <div class="step">步驟 2</div>
         <div class="action">行動</div>
-        <div class="detail">帶位 / 上餐 / 功能牌 / 反檯</div>
+        <div class="detail">帶位 / 上餐 / 功能牌 / 反檯 / 花小費</div>
       </div>
       <div class="qr-item">
         <div class="step">步驟 3</div>
-        <div class="action">上餐干擾</div>
-        <div class="detail">他人可暗中加料</div>
+        <div class="action">查勤</div>
+        <div class="detail">每張空桌 +1 怒氣<br>（首回合跳過）</div>
       </div>
       <div class="qr-item">
         <div class="step">步驟 4</div>
-        <div class="action">踢爆窗口</div>
-        <div class="detail">有蓋牌就可踢爆</div>
-      </div>
-      <div class="qr-item">
-        <div class="step">步驟 5</div>
-        <div class="action">查勤</div>
-        <div class="detail">每張空桌 +1 怒氣</div>
-      </div>
-      <div class="qr-item">
-        <div class="step">步驟 6</div>
         <div class="action">奧客結算</div>
         <div class="detail">催單奧客各 +1 怒氣</div>
       </div>
-      <div class="qr-item">
-        <div class="step">步驟 7</div>
-        <div class="action">淘汰檢查</div>
-        <div class="detail">怒氣 ≥ 5 即出局</div>
+      <div class="qr-item" style="border: 2px solid rgba(255,255,255,.4);">
+        <div class="step" style="color: #FF6B6B;">全程生效</div>
+        <div class="action">即時淘汰</div>
+        <div class="detail">怒氣 ≥ 5 立刻出局！</div>
       </div>
     </div>
   </div>
@@ -909,7 +914,7 @@
   </section>
 
   <div class="footer">
-    <p><strong>《茶餐廳風雲：生存大亂鬥》</strong> V1.1</p>
+    <p><strong>《茶餐廳風雲：生存大亂鬥》</strong> V1.2</p>
     <p style="margin-top: 6px;">祝你生存愉快，唔好俾老闆炒！</p>
   </div>
 
